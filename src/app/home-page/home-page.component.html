@@ -1,0 +1,22 @@
+<div class="homePageMainDiv">
+  <p>Welcome to your page {{userFirstName}} {{userLastName}}</p>
+  <button (click)="disconnect()">Disconnect</button>
+
+  <div class="sportTable">
+    <tr>
+      <th>id</th>
+      <th>label</th>
+      <th>type</th>
+      <th>temperature max</th>
+      <th>temperature min</th>
+    </tr>
+    <tr *ngFor="let sport of userSportList">
+      <th>{{sport.id}}</th>
+      <th>{{sport.label}}</th>
+      <th>{{sport.sportType}}</th>
+      <th>{{sport.temperatureMax}}</th>
+      <th>{{sport.temperatureMin}}</th>
+    </tr>
+  </div>
+
+</div>

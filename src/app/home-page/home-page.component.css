@@ -1,0 +1,21 @@
+th, td {
+  border: 1px solid #dddddd;
+  padding: 15px;
+  text-align: center;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+
+tr:nth-child(even) {
+  background-color: #f3f3f3;
+}
+
+.sportTable{
+  text-align: center;
+  width: 100vh;
+}
