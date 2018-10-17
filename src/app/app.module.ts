@@ -1,15 +1,16 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 
 import {AppComponent} from './app.component';
 import {LogInComponent} from './log-in/log-in.component';
-
-import {RouterModule, Routes} from '@angular/router';
 import {HomePageComponent} from './home-page/home-page.component';
+import { AccountCreationComponent } from './account-creation/account-creation.component';
 
 const appRoutes: Routes = [
   {path: 'login', component: LogInComponent},
   {path: 'home', component: HomePageComponent},
+  {path: 'subscribe', component: AccountCreationComponent},
   {
     path: '',
     redirectTo: '/login',
@@ -24,7 +25,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     LogInComponent,
-    HomePageComponent
+    HomePageComponent,
+    AccountCreationComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

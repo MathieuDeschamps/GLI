@@ -21,4 +21,8 @@ export class LogInComponent implements OnInit {
 
   }
 
+  goToNewAccountCreation() {
+    console.log('going to account creation page');
+    this.router.navigate(['/subscribe']);
+  }
 }
