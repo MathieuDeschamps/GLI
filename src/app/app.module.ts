@@ -8,6 +8,8 @@ import {HomePageComponent} from './home-page/home-page.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {MzButtonModule, MzModalModule} from 'ngx-materialize';
 import { AccountCreationComponent } from './account-creation/account-creation.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 const appRoutes: Routes = [
   {path: 'login', component: LogInComponent},
@@ -35,7 +37,8 @@ const appRoutes: Routes = [
     BrowserModule,
     MzButtonModule,
     MzModalModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

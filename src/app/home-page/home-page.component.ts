@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Sport} from '../sport';
 import {Router} from '@angular/router';
+import {WeatherServiceService} from '../services/weather-service.service';
 
 
 @Component({
@@ -20,10 +21,16 @@ export class HomePageComponent implements OnInit {
   ];
 
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private weather: WeatherServiceService) {
   }
 
   ngOnInit() {
+  }
+
+  test() {
+    this.weather.getWeatherByCityZip('35200').subscribe((data) => {
+      console.log('data', data);
+    });
   }
 
   disconnect(){
