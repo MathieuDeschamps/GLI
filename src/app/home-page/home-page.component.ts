@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Sport} from "../sport";
-import {Router} from "@angular/router";
+import {Sport} from '../sport';
+import {Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-home-page',
@@ -13,8 +14,8 @@ export class HomePageComponent implements OnInit {
   userFirstName: String = 'Roger';
   userLastName: String = 'Croisillion';
   userSportList: Sport[] = [
-    {id: 1, label: 'Tennis', sportType: 'SportExterieur', temperatureMax: 30},
-    {id: 2, label: 'Basket', sportType: 'SportInterieur'},
+    {id: 1, label: 'Tennis', sportType: 'SportExterieur', temperatureMax: 30, temperatureMin: 10},
+    {id: 2, label: 'Basket', sportType: 'SportInterieur', temperatureMax: null  , temperatureMin: null},
     {id: 3, label: 'Course', sportType: 'SportExterieur', temperatureMax: 35, temperatureMin: 12}
   ];
 

@@ -5,6 +5,8 @@ import {RouterModule, Routes} from '@angular/router';
 import {AppComponent} from './app.component';
 import {LogInComponent} from './log-in/log-in.component';
 import {HomePageComponent} from './home-page/home-page.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {MzButtonModule, MzModalModule} from 'ngx-materialize';
 import { AccountCreationComponent } from './account-creation/account-creation.component';
 
 const appRoutes: Routes = [
@@ -26,11 +28,14 @@ const appRoutes: Routes = [
     AppComponent,
     LogInComponent,
     HomePageComponent,
-    AccountCreationComponent
+    AccountCreationComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
     BrowserModule,
+    MzButtonModule,
+    MzModalModule,
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
