@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {HttpClientModule} from "@angular/common/http";
+import {LoginServiceService} from "../services/login-service.service";
 
 @Component({
   selector: 'app-log-in',
@@ -9,17 +10,25 @@ import {HttpClientModule} from "@angular/common/http";
 })
 export class LogInComponent implements OnInit {
 
-  constructor(private router: Router, private http: HttpClientModule) {
+  constructor(private router: Router, private http: HttpClientModule, private login: LoginServiceService) {
   }
+
+  userPassword: string;
+  userLogin: string;
 
   ngOnInit() {
   }
 
   onConnect() {
-    // @TODO tout en vrai, mais surtout : authentification
-    console.log('Connecting');
-    this.router.navigate(['/home']);
-
+    this.login.connectUserWithClearPassword(this.userPassword, this.userLogin).subscribe((data) => {
+      console.log(data);
+      if (data) {
+        console.log('Connecting');
+        this.router.navigate(['/home']);
+      } else {
+        console.log('ERREUR');
+      }
+    });
   }
 
   goToNewAccountCreation() {

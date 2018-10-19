@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -10,9 +10,7 @@ export class LoginServiceService {
 
   constructor(private http: HttpClient) { }
 
-  connectUserWithClearPassword(password: string){
-
-    let cryptedPassword  = btoa(password);
-    return null;//this.http.get();
+  connectUserWithClearPassword(password: string, pseudo: string){
+    return this.http.get(this.URL_BASE +  btoa(password) + '/' + pseudo );
   }
 }

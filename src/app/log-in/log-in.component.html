@@ -1,10 +1,10 @@
 <div class="logInMain">
   <div class="row">
     <div class="col s6">
-      <input type="text" name="UserLogin" value="tototo"/>
+      <input [(ngModel)]="userLogin" type="text" name="UserLogin" />
     </div>
     <div class="col s6">
-      <input type="text" name="userPassword"/>
+      <input [(ngModel)]="userPassword" type="text" name="userPassword" />
     </div>
   </div>
   <button class="btn" (click)="goToNewAccountCreation()">New Account</button>
