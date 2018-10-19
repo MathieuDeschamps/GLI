@@ -5,3 +5,16 @@
   width: 60%;
   color: black;
 }
+
+input::-webkit-input-placeholder {
+  color: orangered !important;
+}
+input:-moz-placeholder { /* Firefox 18- */
+  color: orangered !important;
+}
+
+input::-moz-placeholder {  /* Firefox 19+ */
+  color: orangered !important;
+}
+
+

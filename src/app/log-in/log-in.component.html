@@ -1,14 +1,16 @@
-<div class="logInMain">
+<div class="logInMain container">
   <div class="row">
-    <div class="col s6">
-      <input [(ngModel)]="userLogin" type="text" name="UserLogin" />
-    </div>
-    <div class="col s6">
-      <input [(ngModel)]="userPassword" type="text" name="userPassword" />
+    <div class="col s6 push-s3">
+      <input [(ngModel)]="userLogin" type="text" name="UserLogin" placeholder="pseudo"/>
     </div>
   </div>
-  <button class="btn" (click)="goToNewAccountCreation()">New Account</button>
-  <button class="btn" (click)="onConnect()">Connect</button>
+  <div class="row">
+    <div class="col s6 push-s3">
+      <input [(ngModel)]="userPassword" type="text" name="userPassword" placeholder="password" />
+    </div>
+  </div>
+  <button class="btn blue" (click)="goToNewAccountCreation()">New Account</button>
+  <button class="btn blue" (click)="onConnect()">Connect</button>
 
 
 </div>

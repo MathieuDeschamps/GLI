@@ -21,13 +21,20 @@ export class AccountCreationComponent implements OnInit {
 
   register() {
 
-    this.password = btoa(this.password);
-    const user = new User(this.pseudo, this.email, this.password);
-    console.log("coucou");
-    const json = JSON.stringify(user);
-    this.userService.createUser(json).subscribe( (data) => {
-      console.log(data['entity']);
-        
-    });
+    if ( this.password.trim() !== '' && this.pseudo.trim() !== '' &&this.email.trim() !== '') {
+      this.password = btoa(this.password);
+      const user = new User(this.pseudo, this.email, this.password);
+      const json = JSON.stringify(user);
+      this.userService.createUser(json).subscribe( (data) => {
+        if ( data['entity'] > 0)
+        {
+          localStorage.setItem('USER_ID', data['entity']);
+          this.router.navigate(['home']);
+          this.userService.setLogged(true);
+        }
+
+      });
+    }
+
   }
 }

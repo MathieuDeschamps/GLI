@@ -35,6 +35,7 @@ export class HomePageComponent implements OnInit {
 
   disconnect(){
     console.log('disconnect');
+    localStorage.setItem('USER_ID', undefined);
     this.router.navigate(['login']);
 
   }

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {HttpClientModule} from "@angular/common/http";
 import {LoginServiceService} from "../services/login-service.service";
+import {UserService} from '../services/user.service';
 
 @Component({
   selector: 'app-log-in',
@@ -10,7 +11,7 @@ import {LoginServiceService} from "../services/login-service.service";
 })
 export class LogInComponent implements OnInit {
 
-  constructor(private router: Router, private http: HttpClientModule, private login: LoginServiceService) {
+  constructor(private router: Router, private http: HttpClientModule, private login: LoginServiceService, private userService: UserService) {
   }
 
   userPassword: string;
@@ -24,6 +25,7 @@ export class LogInComponent implements OnInit {
       console.log(data);
       if (data) {
         console.log('Connecting');
+        this.userService.setLogged(true);
         this.router.navigate(['/home']);
       } else {
         console.log('ERREUR');
