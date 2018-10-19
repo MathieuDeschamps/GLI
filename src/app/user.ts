@@ -8,4 +8,14 @@ export class User {
   email: string;
   lieux: Lieu[];
   sports: Sport[];
+  password: string;
+
+  constructor( pseudo: string, email: string, password: string ) {
+    this.pseudo = pseudo;
+    this.email = email;
+    this.password = password;
+    this.lieux = [];
+    this.sports = [];
+
+  }
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
+import {UserService} from '../services/user.service';
+import {User} from '../user';
 
 @Component({
   selector: 'app-account-creation',
@@ -8,19 +10,24 @@ import {Router} from "@angular/router";
 })
 export class AccountCreationComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  email: string;
+  password: string;
+  pseudo: string;
+
+  constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit() {
   }
 
-  cancelAccountCreation() {
-    // @todo canceling ?
-    console.log('Canceling Account creation');
-    this.router.navigate(['login']);
-  }
+  register() {
 
-  createNewAccount() {
-    // @todo account creation
-    console.log('Account Creation');
+    this.password = btoa(this.password);
+    const user = new User(this.pseudo, this.email, this.password);
+    console.log("coucou");
+    const json = JSON.stringify(user);
+    this.userService.createUser(json).subscribe( (data) => {
+      console.log(data['entity']);
+        
+    });
   }
 }
