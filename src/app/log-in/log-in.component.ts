@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
-import {HttpClientModule} from "@angular/common/http";
-import {LoginServiceService} from "../services/login-service.service";
+import {Router} from '@angular/router';
+import {HttpClientModule} from '@angular/common/http';
+import {LoginServiceService} from '../services/login-service.service';
 import {UserService} from '../services/user.service';
 
 @Component({
@@ -25,7 +25,7 @@ export class LogInComponent implements OnInit {
       console.log(data);
       if (data) {
         console.log('Connecting');
-        this.userService.setLogged(true);
+        this.userService.setLogged(true, data['entity']);
         this.router.navigate(['/home']);
       } else {
         console.log('ERREUR');

@@ -1,22 +1,36 @@
 <div class="homePageMainDiv">
-  <p>Welcome to your page {{userFirstName}} {{userLastName}}</p>
-  <button mz-button (click)="test()">Disconnect</button>
-
-  <div class="sportTable">
-    <tr>
-      <th>id</th>
-      <th>label</th>
-      <th>type</th>
-      <th>temperature max</th>
-      <th>temperature min</th>
-    </tr>
-    <tr *ngFor="let sport of userSportList">
-      <th>{{sport.id}}</th>
-      <th>{{sport.label}}</th>
-      <th>{{sport.sportType}}</th>
-      <th>{{sport.temperatureMax}}</th>
-      <th>{{sport.temperatureMin}}</th>
-    </tr>
+  <div class="row container valign-wrapper">
+    <div class="col s4">
+      <mz-select-container>
+        <select mz-select
+                id="sport-select"
+                [placeholder]="'Sport'"
+                [(ngModel)]="selectedSportId"
+                (change)="sportChange($event)"
+        >
+          <option *ngFor="let sport of sports" [value]="sport.id">{{sport.label}}</option>
+        </select>
+      </mz-select-container>
+    </div>
+    <div class="col s4">
+      <mz-select-container>
+        <select mz-select
+                id="lieu-select"
+                [placeholder]="'Lieux'"
+                [(ngModel)]="selectedLieux"
+        >
+          <option *ngFor="let lieux of lieuSport" [value]="lieux.id.codePostal" >{{lieux.id.labelVille}}</option>
+        </select>
+      </mz-select-container>
+    </div>
+    <div class="col s4">
+      <a class="btn" (click)="click()">Get result</a>
+    </div>
   </div>
+  <div *ngFor="let weather of weatherList">
+    <div class="row">
+     Date: {{weather['dt_txt']}} Temperature: {{weather['main']['temp']}} Description: {{weather['weather'][0]['description']}} tt{{selectedSport.temperatureMax}}tt
+    </div>
 
+  </div>
 </div>

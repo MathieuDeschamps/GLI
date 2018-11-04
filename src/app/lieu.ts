@@ -1,8 +1,6 @@
-import {Sport} from './sport';
+import {IdLieux} from './idLieux';
 
 export class Lieu {
 
-  codePostal: string;
-  labelVille: string;
-  sports: Sport[];
+  id: IdLieux;
 }

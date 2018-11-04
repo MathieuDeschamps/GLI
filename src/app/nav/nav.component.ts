@@ -21,7 +21,7 @@ export class NavComponent implements OnInit {
   }
   disconnect() {
     localStorage.setItem('USER_ID', undefined);
-    this.userService.setLogged(false);
+    this.userService.setLogged(false, undefined);
     this.router.navigate(['login']);
   }
 

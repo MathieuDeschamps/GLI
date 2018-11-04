@@ -11,6 +11,7 @@ export class UserService {
   private URL_BASE = 'http://localhost:8081/user';
   private logged = new Subject<Boolean>();
   public  logged$ = this.logged.asObservable();
+  public  userId: Number = 23;
   constructor(private http: HttpClient) { }
 
 
@@ -24,7 +25,25 @@ export class UserService {
     return this.http.post(this.URL_BASE, user, httpOptions );
   }
 
-  setLogged( logged: boolean) {
+  getSport() {
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Authorization': 'my-auth-token'
+      })
+    };
+
+    return this.http.get( this.URL_BASE + '/' + this.userId + '/sports');
+  }
+
+  setLogged( logged: boolean, id: number) {
     this.logged.next(logged);
+    if (logged) {
+      this.userId = id;
+    } else {
+      this.userId = -1;
+    }
+
   }
 }
