@@ -16,6 +16,7 @@ export class LogInComponent implements OnInit {
 
   userPassword: string;
   userLogin: string;
+  errorMsgConnexion: string = '';
 
   ngOnInit() {
   }
@@ -25,6 +26,7 @@ export class LogInComponent implements OnInit {
       if (typeof data === 'number') {
         if (data === -1) {
           console.log('ERREUR');
+          this.errorMsgConnexion = ' lors de connexion : mot de pase ou identifiant invalide';
         } else {
           console.log('Connecting');
           this.userService.setLogged(true, data);
@@ -32,6 +34,8 @@ export class LogInComponent implements OnInit {
           this.router.navigate(['/home']);
         }
       }
+    }, () => {
+      this.errorMsgConnexion = ' du serveur.';
     });
   }
 
@@ -39,5 +43,9 @@ export class LogInComponent implements OnInit {
   goToNewAccountCreation() {
     console.log('going to account creation page');
     this.router.navigate(['/subscribe']);
+  }
+
+  closeError() {
+    this.errorMsgConnexion = '';
   }
 }
