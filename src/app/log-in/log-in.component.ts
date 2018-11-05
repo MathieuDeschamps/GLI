@@ -21,17 +21,20 @@ export class LogInComponent implements OnInit {
   }
 
   onConnect() {
-    this.login.connectUserWithClearPassword(this.userPassword, this.userLogin).subscribe((data) => {
-      console.log(data);
-      if (data) {
-        console.log('Connecting');
-        this.userService.setLogged(true, data['entity']);
-        this.router.navigate(['/home']);
-      } else {
-        console.log('ERREUR');
+    this.login.connectUser(this.userPassword, this.userLogin).subscribe((data) => {
+      if (typeof data === 'number') {
+        if (data === -1) {
+          console.log('ERREUR');
+        } else {
+          console.log('Connecting');
+          this.userService.setLogged(true, data);
+          localStorage.setItem('USER_ID', data.toString());
+          this.router.navigate(['/home']);
+        }
       }
     });
   }
+
 
   goToNewAccountCreation() {
     console.log('going to account creation page');
