@@ -1,5 +1,25 @@
 <div class="preference-Main-Div">
   <div class="row container valign-wrapper">
+    <div class="col s8">
+      <table class="highlight">
+        <thead>
+        <tr>
+          <td>Sports auquels vous êtes inscrits</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let sportUser of showUserSports">
+          <td>{{sportUser.label}}</td>
+          <td>
+            <button (click)="deleteSportToUser(sportUser.id)">-</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="row container valign-wrapper">
     <div class="col s7">
       <mz-select-container>
         <select mz-select
