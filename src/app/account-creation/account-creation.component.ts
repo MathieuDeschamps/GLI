@@ -23,6 +23,7 @@ export class AccountCreationComponent implements OnInit {
 
     if ( this.password.trim() !== '' && this.pseudo.trim() !== '' && this.email.trim() !== '') {
       this.password = btoa(this.password);
+      console.log(this.password);
       const user = new User(this.pseudo, this.email, this.password);
       const json = JSON.stringify(user);
       this.userService.createUser(json).subscribe( (data) => {

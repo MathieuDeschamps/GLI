@@ -30,7 +30,7 @@ export class HomePageComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    console.log('init');
     this.userService.getSport().subscribe( (data: Sport[]) => {
       this.sports = data;
     });

@@ -24,13 +24,24 @@
       </mz-select-container>
     </div>
     <div class="col s4">
-      <a class="btn" (click)="click()">Get result</a>
+      <a class="btn blue darken-2" (click)="click()">Get result</a>
     </div>
   </div>
-  <div *ngFor="let weather of weatherList">
-    <div class="row">
-     Date: {{weather['dt_txt']}} Temperature: {{weather['main']['temp']}} Description: {{weather['weather'][0]['description']}} tt{{selectedSport.temperatureMax}}tt
-    </div>
+  <table class="highlight container responsive-table">
+    <tbody>
+    <tr *ngFor="let weather of weatherList" >
+      <td >Date: {{weather['dt_txt']}}</td>
+      <td >Temperature: {{weather['main']['temp']}}</td>
+      <td>Description: {{weather['weather'][0]['description']}} </td>
+      <td> {{selectedSport.temperatureMin}} {{selectedSport.temperatureMax}}</td>
+      <td>
+        <img *ngIf="weather['main']['temp'] > selectedSport.temperatureMin && weather['main']['temp'] < selectedSport.temperatureMax; else elseBlock" src="../../assets/images/emoji-leger-sourire-1F642.png" width="40" height="40"/>
+        <ng-template #elseBlock>
+          <img src="../../assets/images/emoji-sourcils-fronces-2639.png" width="40" height="40"/>
+        </ng-template>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 
-  </div>
 </div>

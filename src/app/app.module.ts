@@ -5,7 +5,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {LogInComponent} from './log-in/log-in.component';
 import {HomePageComponent} from './home-page/home-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MzButtonModule, MzModalModule, MzSelectModule} from 'ngx-materialize';
+import {MzButtonModule, MzModalModule, MzSelectModule, MzIconModule, MzIconMdiModule, MzInputModule } from 'ngx-materialize';
 import { AccountCreationComponent } from './account-creation/account-creation.component';
 import { HttpClientModule } from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
@@ -40,8 +40,11 @@ const appRoutes: Routes = [
     BrowserModule,
     MzButtonModule,
     MzModalModule,
+    MzIconMdiModule,
+    MzIconModule,
     BrowserAnimationsModule,
     MzSelectModule,
+    MzInputModule,
     HttpClientModule,
     FormsModule,
     StorageServiceModule
