@@ -1,7 +1,8 @@
 <nav>
   <div class="nav-wrapper">
-    <li href="" class="brand-logo right" (click)="goToHome()">WE Plan</li>
+
     <ul id="nav-mobile" class="left hide-on-med-and-down">
+      <li > <a href="" class="brand-logo right" (click)="goToHome()">WE Plan</a></li>
       <li *ngIf="logged"><a (click)="disconnect()">Logout</a></li>
       <li *ngIf="logged"><a (click)="goToPreference()"><img class="image-preference" src="../../assets/preferenceLogo.png"></a></li>
     </ul>
