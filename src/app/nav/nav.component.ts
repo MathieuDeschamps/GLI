@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router} from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 import {UserService} from '../services/user.service';
 import {Subscription} from 'rxjs';
 
@@ -12,13 +12,16 @@ export class NavComponent implements OnInit {
 
   loggedSub: Subscription = null;
   logged: boolean;
-  constructor(private  router: Router, private  userService: UserService) { }
+
+  constructor(private  router: Router, private  userService: UserService) {
+  }
 
   ngOnInit() {
-    this.loggedSub = this.userService.logged$.subscribe(( value ) => {
+    this.loggedSub = this.userService.logged$.subscribe((value) => {
       this.logged = value.valueOf();
     });
   }
+
   disconnect() {
     localStorage.setItem('USER_ID', undefined);
     this.userService.setLogged(false, undefined);
@@ -27,5 +30,9 @@ export class NavComponent implements OnInit {
 
   goToPreference() {
     this.router.navigate(['preference']);
+  }
+
+  goToHome() {
+    this.router.navigate(['home']);
   }
 }

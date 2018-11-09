@@ -51,6 +51,14 @@ export class PreferencesComponent implements OnInit {
       }, (error) => {
         console.log('Probleme lors de l\'ajout d\'un sport: ' + error.message);
       });
+    const tmp: Sport[] = this.showUserSports;
+    const bool: Sport[] = this.showUserSports.filter(sport => sport.id == this.selectedSport.id);
+    if (bool.length == 0) {
+      tmp.push(this.selectedSport);
+      this.userSports.next(tmp);
+    }
+
+
   }
 
   deleteSportToUser(sportId: number) {
@@ -61,8 +69,8 @@ export class PreferencesComponent implements OnInit {
         console.log('Probleme lors de la suppression d\'un sport: ' + error.message);
       });
 
-    //@TODO modifier ici le userSports
-    // let tmp: Sport[] = this.showUserSports.filter(x -> sportId == x.id);
-    // this.userSports.next(tmp);
+    // @TODO modifier ici le userSports
+    const tmp: Sport[] = this.showUserSports.filter(sport => sport.id !== sportId);
+    this.userSports.next(tmp);
   }
 }

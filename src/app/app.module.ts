@@ -12,19 +12,21 @@ import {FormsModule} from '@angular/forms';
 import { StorageServiceModule} from 'angular-webstorage-service';
 import { NavComponent } from './nav/nav.component';
 import { PreferencesComponent } from './preferences/preferences.component';
+import { AuthGuardService as AuthGuard } from './services/auth-guard.service';
+import { AuthGuardConnectedService as AuthGuardConnected } from './services/auth-guard-connected.service';
 
 
 const appRoutes: Routes = [
-  {path: 'login', component: LogInComponent},
-  {path: 'home', component: HomePageComponent},
-  {path: 'subscribe', component: AccountCreationComponent},
-  {path: 'preference', component: PreferencesComponent},
+  {path: 'login', component: LogInComponent, canActivate: [AuthGuardConnected]},
+  {path: 'home', component: HomePageComponent, canActivate: [AuthGuard]},
+  {path: 'subscribe', component: AccountCreationComponent, canActivate: [AuthGuardConnected]},
+  {path: 'preference', component: PreferencesComponent, canActivate: [AuthGuard]},
   {
     path: '',
-    redirectTo: '/login',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
-  {path: '**', component: LogInComponent} //@TODO remplacer ici par une page 404
+  {path: '**', component: LogInComponent}
 
 ];
 
