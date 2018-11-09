@@ -25,4 +25,14 @@ export class PreferenceService {
     return this.http.put(this.URL_BASE + 'user/' + userId + '/sport', sportId, httpOptions);
   }
 
+  removeSportToUser(userId: number, sportId: number) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Authorization': 'my-auth-token'
+      })
+    };
+    return this.http.put(this.URL_BASE + 'user/' + userId + '/removeSport', sportId, httpOptions);
+  }
+
 }
