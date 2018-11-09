@@ -1,0 +1,20 @@
+<div class="preference-Main-Div">
+  <div class="row container valign-wrapper">
+    <div class="col s7">
+      <mz-select-container>
+        <select mz-select
+                id="sport-select"
+                [placeholder]="'Sport'"
+                [(ngModel)]="selectedSportId"
+                (change)="sportChange($event)"
+        >
+          <option *ngFor="let sport of sports" [value]="sport.id">{{sport.label}}</option>
+        </select>
+
+      </mz-select-container>
+    </div>
+    <div class="col s0">
+      <button (click)="addSportToUser()">+</button>
+    </div>
+  </div>
+</div>

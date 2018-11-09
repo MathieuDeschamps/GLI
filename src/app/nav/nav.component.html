@@ -3,6 +3,7 @@
     <a class="brand-logo right">WE Plan</a>
     <ul id="nav-mobile" class="left hide-on-med-and-down">
       <li *ngIf="logged"><a (click)="disconnect()">Logout</a></li>
+      <li *ngIf="logged"><a (click)="goToPreference()"><img class="image-preference" src="../../assets/preferenceLogo.png"></a></li>
     </ul>
   </div>
 </nav>
