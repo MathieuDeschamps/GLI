@@ -6,11 +6,16 @@
   </div>
   <div class="row">
     <div class="col s6 push-s3">
-      <input [(ngModel)]="userPassword" type="text" name="userPassword" placeholder="password" />
+      <input [(ngModel)]="userPassword" type="password" name="userPassword" placeholder="password"/>
     </div>
   </div>
   <button class="btn blue" (click)="goToNewAccountCreation()">New Account</button>
   <button class="btn blue" (click)="onConnect()">Connect</button>
 
-
+  <div *ngIf="errorMsgConnexion">
+    <div class="error-connexion">
+      <span class="closebtn" (click)="closeError()">&times;</span>
+      <strong>Erreur</strong> {{errorMsgConnexion}}
+    </div>
+  </div>
 </div>

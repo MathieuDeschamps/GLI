@@ -25,4 +25,7 @@ export class NavComponent implements OnInit {
     this.router.navigate(['login']);
   }
 
+  goToPreference() {
+    this.router.navigate(['preference']);
+  }
 }

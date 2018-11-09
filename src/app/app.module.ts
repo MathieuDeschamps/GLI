@@ -11,12 +11,14 @@ import { HttpClientModule } from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { StorageServiceModule} from 'angular-webstorage-service';
 import { NavComponent } from './nav/nav.component';
+import { PreferencesComponent } from './preferences/preferences.component';
 
 
 const appRoutes: Routes = [
   {path: 'login', component: LogInComponent},
   {path: 'home', component: HomePageComponent},
   {path: 'subscribe', component: AccountCreationComponent},
+  {path: 'preference', component: PreferencesComponent},
   {
     path: '',
     redirectTo: '/login',
@@ -34,6 +36,7 @@ const appRoutes: Routes = [
     HomePageComponent,
     AccountCreationComponent,
     NavComponent,
+    PreferencesComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
