@@ -22,8 +22,7 @@ export class UserService {
         'Authorization': 'my-auth-token'
       })
     };
-    //return this.http.post(this.URL_BASE, user, httpOptions );
-    return this.http.put(this.URL_BASE+'/23/Sport', '2', httpOptions );
+    return this.http.post(this.URL_BASE, user, httpOptions );
   }
 
   getSport() {
